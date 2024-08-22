@@ -120,7 +120,8 @@ const createtable = (obj) => {
 };
 
 //on load screen
-addEventListener('DOMContentLoaded', () => {
+addEventListener('DOMContentLoaded', (e) => {
+  preventDefault();
   cleartable();
   onload().then((d) => {
     // console.log(d);
@@ -131,8 +132,9 @@ addEventListener('DOMContentLoaded', () => {
 //query name of user
 const btnsearch = document.querySelector('.btn-search');
 
-btnsearch.addEventListener('click', () => {
+btnsearch.addEventListener('click', (e) => {
   if (document.querySelector('#name').value != '') {
+    e.preventDefault();
     cleartable();
     queryuser().then((d) => {
       // console.log(d);
