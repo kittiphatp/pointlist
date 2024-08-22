@@ -8,8 +8,18 @@
 //   return 'Basic ' + hash;
 // };
 
+//key input box
+const keyinput = document.querySelector('#key');
+keyinput.addEventListener('keyup', (e) => {
+  localStorage.setItem('key', 'Basic ' + btoa(e.target.value + ':' + 'X'));
+  // console.log('Basic ' + btoa(e.target.value + ':' + 'X'));
+});
+
 //function fetch per page
 const fetchperpage = async (page) => {
+  //load key from local storage
+  const apikey = localStorage.getItem('key');
+
   const BASE_URL = `https://mverge.freshservice.com/api/v2/requesters?per_page=100&page=${page}`;
 
   const h = new Headers();
@@ -17,7 +27,8 @@ const fetchperpage = async (page) => {
   h.append('Access-Control-Allow-Origin', 'http://localhost:3000');
   h.append(
     'Authorization',
-    'Basic ' + btoa(document.querySelector('#key').value + ':' + 'X')
+    apikey
+    //'Basic ' + btoa(document.querySelector('#key').value + ':' + 'X')
   );
   const requestOptions = {
     method: 'GET',
@@ -63,6 +74,9 @@ const queryuser = async () => {
   //query name input
   const name = document.querySelector('#name').value;
 
+  //load key from local storage
+  const apikey = localStorage.getItem('key');
+
   const BASE_URL = `https://mverge.freshservice.com/api/v2/requesters?query="first_name:%27${name}%27%20OR%20last_name:%27${name}%27"`;
 
   const h = new Headers();
@@ -70,7 +84,8 @@ const queryuser = async () => {
   h.append('Access-Control-Allow-Origin', 'http://localhost:3000');
   h.append(
     'Authorization',
-    'Basic ' + btoa(document.querySelector('#key').value + ':' + 'X')
+    apikey
+    //'Basic ' + btoa(document.querySelector('#key').value + ':' + 'X')
   );
   const requestOptions = {
     method: 'GET',
@@ -120,8 +135,10 @@ const createtable = (obj) => {
 };
 
 //on load screen
-addEventListener('DOMContentLoaded', (e) => {
-  preventDefault();
+addEventListener('DOMContentLoaded', () => {
+  //clear local storage
+  localStorage.clear();
+  //clear table
   cleartable();
   onload().then((d) => {
     // console.log(d);
@@ -132,16 +149,18 @@ addEventListener('DOMContentLoaded', (e) => {
 //query name of user
 const btnsearch = document.querySelector('.btn-search');
 
-btnsearch.addEventListener('click', (e) => {
+btnsearch.addEventListener('click', () => {
   if (document.querySelector('#name').value != '') {
-    e.preventDefault();
     cleartable();
     queryuser().then((d) => {
       // console.log(d);
       createtable(d);
     });
   } else {
-    e.preventDefault();
-    location.reload();
+    cleartable();
+    onload().then((d) => {
+      // console.log(d);
+      createtable(d);
+    });
   }
 });
