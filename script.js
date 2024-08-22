@@ -132,6 +132,9 @@ const createtable = (obj) => {
       ).innerHTML += `<tr><td>${item.first_name} ${last_name}</td><td>${item.primary_email}</td><td>${point}</td><tr>`;
     }
   });
+
+  //hide loading icon
+  document.querySelector('.fa').style.display = 'none';
 };
 
 //on load screen
@@ -140,22 +143,29 @@ addEventListener('DOMContentLoaded', () => {
   localStorage.clear();
   //clear table
   cleartable();
-  onload().then((d) => {
-    // console.log(d);
-    createtable(d);
-  });
+  onload()
+    .then((d) => {
+      // console.log(d);
+      createtable(d);
+    })
+    .catch((err) => console.log(err));
 });
 
 //query name of user
 const btnsearch = document.querySelector('.btn-search');
 
 btnsearch.addEventListener('click', () => {
+  //show loading icon
+  document.querySelector('.fa').style.display = 'inline-block';
+
   if (document.querySelector('#name').value != '') {
     cleartable();
-    queryuser().then((d) => {
-      // console.log(d);
-      createtable(d);
-    });
+    queryuser()
+      .then((d) => {
+        // console.log(d);
+        createtable(d);
+      })
+      .catch((err) => console.log(err));
   } else {
     cleartable();
     onload().then((d) => {
