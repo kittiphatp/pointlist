@@ -141,6 +141,7 @@ btnsearch.addEventListener('click', (e) => {
       createtable(d);
     });
   } else {
+    e.preventDefault();
     location.reload();
   }
 });
