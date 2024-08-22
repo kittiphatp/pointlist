@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <nav>
+      <label class="key" for="key"
+        ><img src="./assets/key.svg" alt="key" width="15em" /><input
+          type="text"
+          name="key"
+          id="key"
+      /></label>
+    </nav>
+    <main>
+      <header>
+        <div class="point-logo">
+          <img src="./assets/coin.svg" alt="coin" width="30em" />
+        </div>
+        <p class="topic">Requester points</p>
+      </header>
+      <div class="search">
+        <label for="name"> ค้นหา ชื่อ - นามสกุล </label>
+        <img src="./assets/person.svg" alt="person" width="30em" />
+        <input type="text" name="name" id="name" />
+        <label class="sort" for="sort">
+          <input type="checkbox" name="sort" id="sort" />
+          Sort point desc
+        </label>
+        <button class="btn-search">Search</button>
+      </div>
+      <!-- <div class="page">1 2</div> -->
+      <div class="table">
+        <table>
+          <thead>
+            <tr>
+              <td>ชื่อ นามสกุล</td>
+              <td>เมล์</td>
+              <td>พอยต์</td>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

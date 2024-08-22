@@ -1,0 +1,123 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 1em;
+
+  /* border: 1px solid black; */
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+nav {
+  width: 80%;
+  height: 50px;
+  padding: 10px;
+  background-color: salmon;
+}
+
+main {
+  width: 80%;
+  height: 100%;
+  padding: 10px;
+  margin: 20px 0 0 0;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+.key {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+}
+
+header,
+.search,
+.page,
+.table {
+  width: 95%;
+}
+
+header,
+.search {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+label {
+  font-size: 0.8em;
+}
+
+input[type='text'] {
+  height: 2.5em;
+  padding: 5px;
+  box-sizing: border-box;
+  border: 0.5px solid #555;
+  font-size: 0.8em;
+}
+input[type='text']:focus {
+  outline: none;
+  border: 0.5px solid salmon;
+}
+
+.sort {
+  margin: 0 50px 0 0;
+}
+
+.btn-search {
+  width: 120px;
+  height: 2.5em;
+  border-style: none;
+  background-color: salmon;
+  color: #fff;
+  font-size: 0.8em;
+  cursor: pointer;
+}
+.btn-search:hover {
+  background-color: lightsalmon;
+}
+
+.page {
+  margin: 0 10px -20px 0;
+  text-align: end;
+  font-size: 0.8em;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead > tr > td {
+  background-color: salmon;
+  color: #fff;
+}
+
+table,
+td,
+th {
+  border: 1px solid salmon;
+}
+
+td {
+  width: 33%;
+  padding: 10px;
+  font-size: 0.7em;
+}
+
+td:last-of-type {
+  width: 5%;
+  text-align: center;
+}
