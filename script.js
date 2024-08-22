@@ -10,7 +10,7 @@
 
 //key input box
 const keyinput = document.querySelector('#key');
-keyinput.addEventListener('keyup', (e) => {
+keyinput.addEventListener('change', (e) => {
   localStorage.setItem('key', 'Basic ' + btoa(e.target.value + ':' + 'X'));
   // console.log('Basic ' + btoa(e.target.value + ':' + 'X'));
 });
