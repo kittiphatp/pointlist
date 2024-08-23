@@ -14,6 +14,14 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  background: linear-gradient(317deg, #c0ffef, #fff4c7, #ffcbeb, #bee7ff);
+  background-size: 800% 800%;
+
+  -webkit-animation: AnimationName 8s ease infinite;
+  -moz-animation: AnimationName 8s ease infinite;
+  -o-animation: AnimationName 8s ease infinite;
+  animation: AnimationName 8s ease infinite;
 }
 
 nav {
@@ -28,7 +36,7 @@ main {
   height: 100%;
   padding: 10px;
   margin: 20px 0 0 0;
-  background-color: white;
+  /* background-color: white; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -122,9 +130,58 @@ td {
   width: 33%;
   padding: 10px;
   font-size: 0.7em;
+
+  background-color: white;
 }
 
 td:last-of-type {
   width: 5%;
   text-align: center;
+}
+
+/* background gradient color */
+
+@-webkit-keyframes AnimationName {
+  0% {
+    background-position: 0% 72%;
+  }
+  50% {
+    background-position: 100% 29%;
+  }
+  100% {
+    background-position: 0% 72%;
+  }
+}
+@-moz-keyframes AnimationName {
+  0% {
+    background-position: 0% 72%;
+  }
+  50% {
+    background-position: 100% 29%;
+  }
+  100% {
+    background-position: 0% 72%;
+  }
+}
+@-o-keyframes AnimationName {
+  0% {
+    background-position: 0% 72%;
+  }
+  50% {
+    background-position: 100% 29%;
+  }
+  100% {
+    background-position: 0% 72%;
+  }
+}
+@keyframes AnimationName {
+  0% {
+    background-position: 0% 72%;
+  }
+  50% {
+    background-position: 100% 29%;
+  }
+  100% {
+    background-position: 0% 72%;
+  }
 }
